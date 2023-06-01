@@ -26,22 +26,18 @@ def getLocationsPath(folderPath):
 
 # get the name of the script file
 scriptFilename = os.path.abspath(__file__)
-# get the path of the script
+# get the folder that contains the script and other files needed
 folderPath = os.path.dirname(scriptFilename)
 
 #load the excel file from getExcelPath, returns the only excel file in the folder
 wb = load_workbook(getExcelPath(folderPath))
 
-# send the path above to get the excel file returned
-print(getExcelPath(folderPath))
-
+# create variables
 mySheet = wb.worksheets[0]
 locationFile = open(getLocationsPath(folderPath), "r")
 location = ""
 locCol = 1
 wrongLocations = []
-
-
 
 # locationList is just a list of the text file
 locationList = locationFile.readlines()
